@@ -15,6 +15,7 @@ ssh_key_generator(){
 	ssh-keygen -t rsa -b 4096 -C "$mail2"
 	ssh-agent -s
 	chmod 600 $HOME/.ssh/id_rsa
+	chmod 600 $HOME/.ssh/id_rsa.pub
 	ssh-add $HOME/.ssh/id_rsa
 	echo "Ahora deberas agregar la llave publica guardada en $HOME/.ssh/id_rsa.pub"
 	echo "igualmente te generare un documento de texto en $HOME/Desktop/Llave_publica.txt"
