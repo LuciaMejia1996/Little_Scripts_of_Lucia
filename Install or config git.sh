@@ -58,17 +58,17 @@ else
 		    echo "Empezaremos ahora a configurar el git-global"
 		    Git_global_config
 		    		
-		elif [ ${dec30^^} = "$Incorrect" ]; then 
+		elif [ ${dec3^^} = "$Incorrect" ]; then 
 		    echo "Vale hemos de suponer que deseas hacerlo manualmente"
 		    continue		
 		fi
 		      	
-		read -p "las git-global se han configurado, ¿desea crear las llaves SSH? (Y/N)" dec4
+		read -p "¿desea crear las llaves SSH? (Y/N) para tu github" dec4
 		    			
 		if [ ${dec4^^} = "$Correct" ]; then	
 		    echo "Empezaremos con el proceso de configuracion, \n asegurate de leer bien las instrucciones"
 		    ssh_key_generator
-		elif [ ${dec30^^} = "$Incorrect" ]; then
+		elif [ ${dec4^^} = "$Incorrect" ]; then
 		    echo "Ha decidido no hacerlo pero es recomendado para poder conectar por SSH a su git"
 		    exit
 	
