@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# configura las variables principales de github
+# esto en conjunto con las llaves son las que permiten el acceso
 Git_global_config () {
   	read -p "Ingresa tu nombre de usuario en github recuerda que distingue entre masyusculas y minisculas: " usuario 
 	git config --global user.name "$usuario"
@@ -7,6 +9,8 @@ Git_global_config () {
 	git config --global user.email "$mail"
 }
 
+#funcion que nos permite generar una llave publica/ privada
+# Que github accepta para acceder.
 ssh_key_generator(){
 	echo "Ahora procedermos a crear las llaves publicas y privadas"
 	read -p "Ingresa tu correo electronico con el que accedes a github: " mail2
@@ -22,6 +26,10 @@ ssh_key_generator(){
 	cat $HOME/.ssh/id_rsa.pub > $HOME/Desktop/Llave_publica.txt
 }
 
+{ #try
+
+#Variables de decision es un coñazo que compare string puros
+# asi que decidi crear una para si (Y) y otra para no (N)
 Correct="Y"
 Incorrect="N"
 if sudo apt-get install git -y > /dev/null 2>&1; then
@@ -79,3 +87,7 @@ else
 			exit
 	fi	   
 fi
+} || { # catch
+    echo "Parece que algo ha surgido mal, intentalo de nuevo"
+	exit 
+}
